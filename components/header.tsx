@@ -56,10 +56,10 @@ export function Header() {
             priority
           />
           <span className="leading-tight">
-            <span className="block font-heading text-xl font-bold tracking-wide text-navy">
+            <span className={cn('block font-heading text-xl font-bold tracking-wide transition-colors', scrolled ? 'text-navy' : 'text-white')}>
               SCDC
             </span>
-            <span className="block text-[10px] font-semibold tracking-[0.25em] text-ink-muted">
+            <span className={cn('block text-[10px] font-semibold tracking-[0.25em] transition-colors', scrolled ? 'text-ink-muted' : 'text-white/70')}>
               {t('common.engineeringFirm')}
             </span>
           </span>
@@ -73,7 +73,9 @@ export function Header() {
               href={item.href}
               className={cn(
                 'text-sm font-semibold transition-colors hover:text-accent',
-                pathname.startsWith(item.href) ? 'text-accent' : 'text-ink'
+                scrolled
+                  ? (pathname.startsWith(item.href) ? 'text-accent' : 'text-ink')
+                  : (pathname.startsWith(item.href) ? 'text-accent' : 'text-white/90')
               )}
             >
               {t(`nav.${item.key}`)}
@@ -83,7 +85,7 @@ export function Header() {
 
         {/* Right cluster */}
         <div className="hidden items-center gap-4 lg:flex">
-          <LanguageToggle />
+          <LanguageToggle onDark={!scrolled} />
           <Link
             href="/contact"
             className="inline-flex h-11 items-center rounded-full bg-accent px-6 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-hover"
@@ -95,7 +97,7 @@ export function Header() {
         {/* Mobile hamburger */}
         <button
           type="button"
-          className="rounded-lg p-2 text-navy lg:hidden"
+          className={cn('rounded-lg p-2 lg:hidden', scrolled ? 'text-navy' : 'text-white')}
           onClick={() => setMenuOpen((open) => !open)}
           aria-expanded={menuOpen}
           aria-label={menuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
