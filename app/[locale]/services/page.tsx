@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-import { Section, SectionHeading } from '@/components/section';
+import { Section } from '@/components/section';
 import { FadeIn } from '@/components/fade-in';
 import { ServiceCard } from '@/components/service-card';
 import { JsonLd, breadcrumbSchema } from '@/lib/schema';
