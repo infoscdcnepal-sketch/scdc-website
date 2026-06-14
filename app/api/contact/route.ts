@@ -37,33 +37,35 @@ export async function POST(request: Request) {
   if (!parsed.success) {
     return NextResponse.json(
       { ok: false, error: "Validation failed", issues: parsed.error.flatten().fieldErrors },
-      { status: 422 },
+      { status: 422 }
     );
   }
 
-  const resend = new Resend(process.env.RESEND_API_KEY);
-
   const { name, company, email, phone, country, service, message } = parsed.data;
 
-  const emailBody = `
-New enquiry from SCDC website
+  const lines = [
+    "New enquiry from SCDC website",
+    "",
+    "Name:     " + name,
+    "Company:  " + (company || "-"),
+    "Email:    " + email,
+    "Phone:    " + (phone || "-"),
+    "Country:  " + (country || "-"),
+    "Service:  " + service,
+    "",
+    "Message:",
+    message,
+  ];
 
-Name:     ${name}
-Company:  ${company || "—"}
-Email:    ${email}
-Phone:    ${phone || "—"}
-Country:  ${country || "—"}
-Service:  ${service}
+  const emailBody = lines.join("\n");
 
-Message:
-${message}
-`.trim();
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   const { error } = await resend.emails.send({
     from: "SCDC Website <noreply@scdc.com.np>",
     to: "info.scdcnepal@gmail.com",
     replyTo: email,
-    subject: `New enquiry from ${name} — ${service}`,
+    subject: "New enquiry from " + name + " - " + service,
     text: emailBody,
   });
 
@@ -72,4 +74,7 @@ ${message}
     return NextResponse.json({ ok: false, error: "Failed to send email" }, { status: 500 });
   }
 
-  console.log("[contact] enquiry sent:", email, serv
+  console.log("[contact] enquiry sent:", email, service);
+
+  return NextResponse.json({ ok: true });
+}
