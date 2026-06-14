@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-import { Quote } from 'lucide-react';
 import { Section, SectionHeading } from '@/components/section';
 import { FadeIn } from '@/components/fade-in';
 import { StatsBar } from '@/components/stats-bar';
@@ -67,7 +66,7 @@ function WhyContent() {
         </div>
       </section>
 
-      <div className="mx-auto -mt-12 max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto -mt-12 max-w-7xl px-4 sm:px-6 lg:px-8">
         <StatsBar />
       </div>
 
@@ -81,26 +80,18 @@ function WhyContent() {
         </div>
       </Section>
 
-      {/* Client voices */}
+      {/* Honest client relationships statement */}
       <Section className="bg-white">
         <FadeIn>
           <SectionHeading title={t('voicesTitle')} />
         </FadeIn>
-        <div className="grid gap-8 lg:grid-cols-3">
-          {[1, 2, 3].map((i) => (
-            <FadeIn key={i} delay={i * 0.1}>
-              <figure className="flex h-full flex-col rounded-2xl bg-surface p-8 shadow-card">
-                <Quote className="h-8 w-8 text-teal" aria-hidden="true" />
-                <blockquote className="mt-4 flex-1 leading-relaxed text-ink">
-                  {t(`voices.${i}.quote`)}
-                </blockquote>
-                <figcaption className="mt-6 text-sm font-semibold text-ink-muted">
-                  — {t(`voices.${i}.source`)}
-                </figcaption>
-              </figure>
-            </FadeIn>
-          ))}
-        </div>
+        <FadeIn delay={0.1}>
+          <div className="mx-auto max-w-3xl rounded-2xl border border-teal/30 bg-teal-light p-10 text-center">
+            <p className="text-lg leading-relaxed text-navy">
+              {t('honestNote')}
+            </p>
+          </div>
+        </FadeIn>
       </Section>
     </>
   );

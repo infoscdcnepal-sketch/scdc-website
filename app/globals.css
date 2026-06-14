@@ -41,3 +41,14 @@ h1, h2, h3, h4 {
   outline: 2px solid #2db389;
   outline-offset: 2px;
 }
+
+/* ── Locale-specific fonts ─────────────────────────────────────────── */
+html[lang="ja"] body,
+html[lang="ja"] * {
+  font-family: 'MS Gothic', 'ＭＳ ゴシック', 'MS PGothic', 'ＭＳ Ｐゴシック', 'Meiryo', 'Yu Gothic', 'ヒラギノ角ゴ ProN', sans-serif !important;
+}
+
+html[lang="en"] body,
+html[lang="en"] * {
+  font-family: 'Times New Roman', Times, Georgia, serif !important;
+}

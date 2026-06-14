@@ -72,7 +72,7 @@ export function Header() {
               key={item.key}
               href={item.href}
               className={cn(
-                'text-sm font-semibold transition-colors hover:text-accent',
+                'text-base font-semibold transition-colors hover:text-accent',
                 scrolled
                   ? (pathname.startsWith(item.href) ? 'text-accent' : 'text-ink')
                   : (pathname.startsWith(item.href) ? 'text-accent' : 'text-white/90')
@@ -131,16 +131,4 @@ export function Header() {
                 <LanguageToggle />
                 <Link
                   href="/contact"
-                  className="inline-flex h-11 items-center rounded-full bg-accent px-6 text-sm font-semibold text-white"
-                >
-                  {t('common.getQuote')}
-                </Link>
-              </div>
-            </div>
-          </motion.nav>
-        )}
-      </AnimatePresence>
-    </header>
-  );
-}
-
+                  className="inline-flex h-11
