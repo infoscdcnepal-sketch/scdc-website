@@ -30,7 +30,6 @@ export function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close the mobile drawer on navigation.
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
@@ -39,12 +38,11 @@ export function Header() {
     <header
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-300',
-        scrolled
-          ? 'bg-white/85 shadow-sm backdrop-blur-md'
-          : 'bg-white/0'
+        scrolled ? 'bg-white/85 shadow-sm backdrop-blur-md' : 'bg-white/0'
       )}
     >
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-8">
+
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3" aria-label="SCDC — Home">
           <Image
@@ -131,4 +129,15 @@ export function Header() {
                 <LanguageToggle />
                 <Link
                   href="/contact"
-                  className="inline-flex h-11
+                  className="inline-flex h-11 items-center rounded-full bg-accent px-6 text-sm font-semibold text-white"
+                >
+                  {t('common.getQuote')}
+                </Link>
+              </div>
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
+    </header>
+  );
+}
