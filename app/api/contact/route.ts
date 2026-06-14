@@ -62,7 +62,7 @@ export async function POST(request: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   const { error } = await resend.emails.send({
-    from: "SCDC Website <noreply@scdc.com.np>",
+    from: "SCDC Website <onboarding@resend.dev>",
     to: "info.scdcnepal@gmail.com",
     reply_to: email,
     subject: "New enquiry from " + name + " - " + service,
