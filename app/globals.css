@@ -43,11 +43,49 @@ h1, h2, h3, h4 {
 }
 
 /* ── Locale-specific fonts ─────────────────────────────────────────── */
-html[lang="ja"] body,
-html[lang="ja"] * {
-  font-family: 'MS Gothic', 'ＭＳ ゴシック', 'MS PGothic', 'ＭＳ Ｐゴシック', 'Meiryo', 'Yu Gothic', 'ヒラギノ角ゴ ProN', sans-serif !important;
+
+/* Japanese — Noto Sans JP */
+html[lang="ja"] body {
+  font-family: var(--font-noto-jp), 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+  font-size: 15px;       /* slightly tighter base — JP glyphs read well at 15 */
+  font-weight: 400;
+  line-height: 1.85;     /* Japanese needs more breathing room between lines  */
+  letter-spacing: 0.02em;
 }
 
+html[lang="ja"] h1,
+html[lang="ja"] h2,
+html[lang="ja"] h3,
+html[lang="ja"] h4 {
+  font-family: var(--font-noto-jp), 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+html[lang="ja"] p,
+html[lang="ja"] li,
+html[lang="ja"] span,
+html[lang="ja"] label,
+html[lang="ja"] td,
+html[lang="ja"] th {
+  font-family: var(--font-noto-jp), 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+  font-weight: 400;
+}
+
+html[lang="ja"] strong,
+html[lang="ja"] b {
+  font-weight: 700;
+}
+
+html[lang="ja"] nav a,
+html[lang="ja"] button {
+  font-family: var(--font-noto-jp), 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+/* English — Times New Roman */
 html[lang="en"] body,
 html[lang="en"] * {
   font-family: 'Times New Roman', Times, Georgia, serif !important;
