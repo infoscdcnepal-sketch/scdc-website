@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  @apply bg-surface text-ink font-body antialiased;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4 {
+  @apply font-heading;
+}
+
+/* Blueprint grid overlay used in hero / dark CTA sections */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+:focus-visible {
+  outline: 2px solid #2db389;
+  outline-offset: 2px;
+}
