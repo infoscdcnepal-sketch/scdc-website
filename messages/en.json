@@ -5,7 +5,7 @@
     "getQuote": "Get a Quote",
     "contactUs": "Contact Us",
     "months": "{count} months",
-    "engineeringFirm": "ENGINEERING FIRM"
+    "engineeringFirm": "DESIGN PARTNER"
   },
   "nav": {
     "services": "Services",
@@ -176,18 +176,66 @@
     "durationLabel": "Duration",
     "note": "Client names withheld due to confidentiality agreements.",
     "projects": {
-      "1": { "title": "Logistics Warehouse", "type": "Logistics", "scope": "Shop drawings & BIM support" },
-      "2": { "title": "Veterinary Clinic", "type": "Medical", "scope": "Structural drawings & calculation support" },
-      "3": { "title": "Commercial Facility", "type": "Commercial", "scope": "BIM modeling & structural drawings" },
-      "4": { "title": "Factory / Production Building", "type": "Industrial", "scope": "Shop drawings (general, detail, single-part)" },
-      "5": { "title": "Apartment Building", "type": "Residential", "scope": "Structural drawing support & tracing" },
-      "6": { "title": "Office Building", "type": "Office", "scope": "Shop drawing outsourcing & BIM modeling" },
-      "7": { "title": "Mixed-Use Commercial", "type": "Commercial", "scope": "Structural drawings & shop drawing support" },
-      "8": { "title": "Elementary School Renovation", "type": "Education", "scope": "Structural calculation support & tracing" },
-      "9": { "title": "Medical Clinic", "type": "Medical", "scope": "Shop drawings & structural drawings" },
-      "10": { "title": "Timber Apartment", "type": "Residential", "scope": "Structural drawings & calculation support" },
-      "11": { "title": "Data Center", "type": "Industrial", "scope": "BIM support & shop drawings" },
-      "12": { "title": "Hotel", "type": "Hospitality", "scope": "Structural drawings & BIM modeling" }
+      "1": {
+        "title": "Logistics Warehouse",
+        "type": "Logistics",
+        "scope": "Shop drawings & BIM support"
+      },
+      "2": {
+        "title": "Veterinary Clinic",
+        "type": "Medical",
+        "scope": "Structural drawings & calculation support"
+      },
+      "3": {
+        "title": "Commercial Facility",
+        "type": "Commercial",
+        "scope": "BIM modeling & structural drawings"
+      },
+      "4": {
+        "title": "Factory / Production Building",
+        "type": "Industrial",
+        "scope": "Shop drawings (general, detail, single-part)"
+      },
+      "5": {
+        "title": "Apartment Building",
+        "type": "Residential",
+        "scope": "Structural drawing support & tracing"
+      },
+      "6": {
+        "title": "Office Building",
+        "type": "Office",
+        "scope": "Shop drawing outsourcing & BIM modeling"
+      },
+      "7": {
+        "title": "Mixed-Use Commercial",
+        "type": "Commercial",
+        "scope": "Structural drawings & shop drawing support"
+      },
+      "8": {
+        "title": "Elementary School Renovation",
+        "type": "Education",
+        "scope": "Structural calculation support & tracing"
+      },
+      "9": {
+        "title": "Medical Clinic",
+        "type": "Medical",
+        "scope": "Shop drawings & structural drawings"
+      },
+      "10": {
+        "title": "Timber Apartment",
+        "type": "Residential",
+        "scope": "Structural drawings & calculation support"
+      },
+      "11": {
+        "title": "Data Center",
+        "type": "Industrial",
+        "scope": "BIM support & shop drawings"
+      },
+      "12": {
+        "title": "Hotel",
+        "type": "Hospitality",
+        "scope": "Structural drawings & BIM modeling"
+      }
     }
   },
   "plans": {
@@ -234,15 +282,42 @@
     "title": "Our Work Process",
     "subtitle": "Nine structured steps from first inquiry to after-delivery support.",
     "steps": {
-      "1": { "title": "Inquiry & Consultation", "desc": "Tell us about your project, scope, and schedule." },
-      "2": { "title": "Document Review", "desc": "We review your drawings and specifications in detail." },
-      "3": { "title": "Proposal & Schedule", "desc": "You receive a clear proposal with scope, schedule, and pricing." },
-      "4": { "title": "Contract & NDA", "desc": "We sign a contract and non-disclosure agreement before any work begins." },
-      "5": { "title": "Drawing Production / BIM Modeling", "desc": "Our team produces drawings and models to the agreed standards." },
-      "6": { "title": "Internal QC Check", "desc": "Every deliverable passes our internal quality control review." },
-      "7": { "title": "Client Review & Revisions", "desc": "You review the deliverables; we incorporate your feedback." },
-      "8": { "title": "Final Delivery", "desc": "Approved drawings and models are delivered in your required formats." },
-      "9": { "title": "After-Delivery Support", "desc": "We remain available for questions and follow-up adjustments." }
+      "1": {
+        "title": "Inquiry & Consultation",
+        "desc": "Tell us about your project, scope, and schedule."
+      },
+      "2": {
+        "title": "Document Review",
+        "desc": "We review your drawings and specifications in detail."
+      },
+      "3": {
+        "title": "Proposal & Schedule",
+        "desc": "You receive a clear proposal with scope, schedule, and pricing."
+      },
+      "4": {
+        "title": "Contract & NDA",
+        "desc": "We sign a contract and non-disclosure agreement before any work begins."
+      },
+      "5": {
+        "title": "Drawing Production / BIM Modeling",
+        "desc": "Our team produces drawings and models to the agreed standards."
+      },
+      "6": {
+        "title": "Internal QC Check",
+        "desc": "Every deliverable passes our internal quality control review."
+      },
+      "7": {
+        "title": "Client Review & Revisions",
+        "desc": "You review the deliverables; we incorporate your feedback."
+      },
+      "8": {
+        "title": "Final Delivery",
+        "desc": "Approved drawings and models are delivered in your required formats."
+      },
+      "9": {
+        "title": "After-Delivery Support",
+        "desc": "We remain available for questions and follow-up adjustments."
+      }
     }
   },
   "about": {
@@ -252,18 +327,42 @@
     "intro3": "Our team of experienced structural engineers and BIM specialists brings together deep technical know-how — built through years of hands-on involvement in steel fabrication projects across diverse industries and structure types.",
     "valuesTitle": "Core Values",
     "values": {
-      "1": { "title": "Precision", "desc": "Every line on every drawing is checked against the source design." },
-      "2": { "title": "Reliability", "desc": "Schedules are commitments. We deliver on every milestone." },
-      "3": { "title": "Technical Excellence", "desc": "JASS 6 expertise and BIM mastery, continuously sharpened." },
-      "4": { "title": "Client-Focused", "desc": "We adapt to your standards, templates, and workflows." }
+      "1": {
+        "title": "Precision",
+        "desc": "Every line on every drawing is checked against the source design."
+      },
+      "2": {
+        "title": "Reliability",
+        "desc": "Schedules are commitments. We deliver on every milestone."
+      },
+      "3": {
+        "title": "Technical Excellence",
+        "desc": "JASS 6 expertise and BIM mastery, continuously sharpened."
+      },
+      "4": {
+        "title": "Client-Focused",
+        "desc": "We adapt to your standards, templates, and workflows."
+      }
     },
     "reachTitle": "Global Reach",
     "reachBody": "Based in Nepal, operating remotely for clients worldwide.",
     "regions": {
-      "1": { "name": "Japan", "desc": "Structural design offices, fabricators, general contractors, steel manufacturers" },
-      "2": { "name": "Australia", "desc": "Engineering consultancies and construction firms" },
-      "3": { "name": "Europe", "desc": "Structural engineering firms and BIM consultancies" },
-      "4": { "name": "USA", "desc": "Structural engineering firms and BIM consultancies" }
+      "1": {
+        "name": "Japan",
+        "desc": "Structural design offices, fabricators, general contractors, steel manufacturers"
+      },
+      "2": {
+        "name": "Australia",
+        "desc": "Engineering consultancies and construction firms"
+      },
+      "3": {
+        "name": "Europe",
+        "desc": "Structural engineering firms and BIM consultancies"
+      },
+      "4": {
+        "name": "USA",
+        "desc": "Structural engineering firms and BIM consultancies"
+      }
     }
   },
   "contact": {
@@ -328,7 +427,7 @@
   },
   "meta": {
     "home": {
-      "title": "Steel Shop Drawing Outsourcing & BIM Services | SCDC",
+      "title": "Steel Shop Drawing Outsourcing & BIM Services | SCDC Design Partner",
       "description": "JASS 6-compliant steel shop drawings, structural drawing support and BIM services by SCDC. Trusted by clients in Japan, Australia, Europe, and the USA."
     },
     "services": {
