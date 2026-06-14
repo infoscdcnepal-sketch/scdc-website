@@ -1,14 +1,20 @@
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { CheckCircle2, ShieldCheck, ImageIcon } from 'lucide-react';
+import { CheckCircle2, ShieldCheck } from 'lucide-react';
 import { Link } from '@/navigation';
 import { Section } from '@/components/section';
 import { FadeIn } from '@/components/fade-in';
 import { Badge } from '@/components/ui/badge';
 import type { ServiceKey } from '@/components/service-card';
 
+const serviceImages: Record<ServiceKey, { src: string; width: number; height: number }> = {
+  structuralDrawings: { src: '/structural-drawing-sample.png', width: 1122, height: 791 },
+  shopDrawings:       { src: '/shop-drawing-sample.png',       width: 2132, height: 1503 },
+  bimSupport:         { src: '/bim-model.png',                 width: 2132, height: 1503 },
+};
+
 type ServiceDetailProps = {
   service: ServiceKey;
-  /** 'deliverables' renders a checklist; 'software' renders tool badges. */
   listKind: 'deliverables' | 'software';
   listCount: number;
   showJassBadge?: boolean;
@@ -21,6 +27,7 @@ export function ServiceDetail({
   showJassBadge = false,
 }: ServiceDetailProps) {
   const t = useTranslations('services');
+  const img = serviceImages[service];
 
   return (
     <>
@@ -51,19 +58,14 @@ export function ServiceDetail({
               </p>
 
               <h2 className="mt-10 font-heading text-2xl font-bold uppercase tracking-wide text-navy">
-                {listKind === 'deliverables'
-                  ? t('deliverablesTitle')
-                  : t('softwareTitle')}
+                {listKind === 'deliverables' ? t('deliverablesTitle') : t('softwareTitle')}
               </h2>
 
               {listKind === 'deliverables' ? (
                 <ul className="mt-5 space-y-3">
                   {Array.from({ length: listCount }, (_, i) => i + 1).map((i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <CheckCircle2
-                        className="mt-1 h-5 w-5 shrink-0 text-accent"
-                        aria-hidden="true"
-                      />
+                      <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
                       <span className="font-medium text-ink">
                         {t(`${service}.${listKind}.${i}`)}
                       </span>
@@ -82,18 +84,17 @@ export function ServiceDetail({
             </div>
           </FadeIn>
 
-          {/* Image placeholder — swap for a real next/image once assets exist */}
+          {/* Real sample image */}
           <FadeIn delay={0.15}>
-            <div
-              role="img"
-              aria-label={t(`${service}.imageAlt`)}
-              className="flex aspect-[4/3] items-center justify-center rounded-2xl border-2 border-dashed border-navy/20 bg-white shadow-card"
-            >
-              <div className="text-center text-ink-muted">
-                <ImageIcon className="mx-auto h-12 w-12 text-navy/30" aria-hidden="true" />
-                <p className="mt-3 max-w-xs px-6 text-sm">{t(`${service}.imageAlt`)}</p>
-              </div>
-            </div>
+            <figure className="overflow-hidden rounded-2xl shadow-card">
+              <Image
+                src={img.src}
+                alt={t(`${service}.imageAlt`)}
+                width={img.width}
+                height={img.height}
+                className="w-full object-cover"
+              />
+            </figure>
           </FadeIn>
         </div>
       </Section>
