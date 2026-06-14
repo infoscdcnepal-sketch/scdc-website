@@ -22,17 +22,18 @@
     "headline": "Steel Shop Drawings & BIM Outsourcing — Built for Japan's Standards",
     "subheadline": "SCDC is a Nepal-based structural engineering firm delivering JASS 6-compliant steel shop drawings, structural drawing support, and BIM services — trusted by clients in Japan, Australia, Europe, and the USA.",
     "ctaPrimary": "View Service Plans",
-    "ctaSecondary": "Contact Us"
+    "ctaSecondary": "Contact Us",
+    "supportNote": "We provide steel and structural drawing support under the direction of the responsible licensed engineer or fabricator."
   },
   "stats": {
     "projects": "Projects Completed",
     "projectsValue": "30+",
-    "satisfaction": "Client Satisfaction",
-    "satisfactionValue": "98%",
-    "structures": "Structure Types",
-    "structuresValue": "4",
-    "response": "Next-Day Response",
-    "responseValue": "24h"
+    "satisfaction": "Full Proficiency",
+    "satisfactionValue": "English",
+    "structures": "Structures Certified",
+    "structuresValue": "Tekla",
+    "response": "Delivery Start",
+    "responseValue": "48h"
   },
   "why": {
     "homeTitle": "Why Leading Firms Choose SCDC",
@@ -52,7 +53,7 @@
       "3": {
         "tag": "Engineering Support",
         "title": "Engineering Support for Connections and Joints",
-        "body": "Beyond detailing, we provide valuable input to structural engineers by suggesting practical and efficient solutions for joint details and connection design, improving constructability and drawing clarity."
+        "body": "Beyond drawing production, we provide practical technical input to support the judgement of the responsible structural engineer. We offer constructability-focused observations on joint and connection details — always as support to the licensed engineer, not as design decisions."
       },
       "4": {
         "tag": "BIM × Construction",
@@ -60,7 +61,7 @@
         "body": "We don't just produce drawings. We study the entire workflow from fabrication to site erection, ensuring that our detailing reflects real-world conditions while fully leveraging the power of BIM-based processes."
       }
     },
-    "voicesTitle": "What Clients Say",
+    "voicesTitle": "Client Relationships",
     "voices": {
       "1": {
         "quote": "Their drawings arrived fabrication-ready and required almost no rework. Communication in Japanese was smooth throughout the project.",
@@ -92,7 +93,8 @@
         "q": "How quickly does SCDC respond to inquiries?",
         "a": "We respond to all project inquiries within one business day."
       }
-    }
+    },
+    "honestNote": "We maintain ongoing relationships with multiple clients in Japan. Due to confidentiality agreements, details are not disclosed — please contact us to discuss our experience. All drawing work is provided as support under the direction of the responsible licensed engineer or fabricator."
   },
   "servicesOverview": {
     "title": "Our BIM-Powered Services",
@@ -171,30 +173,25 @@
     "statsProjects": "30+ Projects",
     "statsStructures": "4 Structure Types",
     "statsIndustries": "8 Industries",
-    "statsSatisfaction": "98% Satisfaction",
+    "statsSatisfaction": "",
     "scopeLabel": "Scope",
     "durationLabel": "Duration",
-    "note": "Client names withheld due to confidentiality agreements.",
+    "note": "All projects were carried out as drawing support work under the direction of the responsible structural engineer or fabricator. Client names are withheld under confidentiality agreements.",
     "projects": {
       "1": {
         "title": "Logistics Warehouse",
         "type": "Logistics",
-        "scope": "Shop drawings & BIM support"
-      },
-      "2": {
-        "title": "Veterinary Clinic",
-        "type": "Medical",
-        "scope": "Structural drawings & calculation support"
+        "scope": "Shop drawing support & BIM support"
       },
       "3": {
         "title": "Commercial Facility",
         "type": "Commercial",
-        "scope": "BIM modeling & structural drawings"
+        "scope": "BIM modeling support & structural drawing support"
       },
       "4": {
         "title": "Factory / Production Building",
         "type": "Industrial",
-        "scope": "Shop drawings (general, detail, single-part)"
+        "scope": "Shop drawing support (general, detail, single-part)"
       },
       "5": {
         "title": "Apartment Building",
@@ -204,44 +201,29 @@
       "6": {
         "title": "Office Building",
         "type": "Office",
-        "scope": "Shop drawing outsourcing & BIM modeling"
+        "scope": "Shop drawing support & BIM modeling support"
       },
       "7": {
         "title": "Mixed-Use Commercial",
         "type": "Commercial",
-        "scope": "Structural drawings & shop drawing support"
+        "scope": "Structural & shop drawing support"
       },
       "8": {
         "title": "Elementary School Renovation",
         "type": "Education",
-        "scope": "Structural calculation support & tracing"
+        "scope": "Structural drawing support & tracing"
       },
       "9": {
         "title": "Medical Clinic",
         "type": "Medical",
-        "scope": "Shop drawings & structural drawings"
-      },
-      "10": {
-        "title": "Timber Apartment",
-        "type": "Residential",
-        "scope": "Structural drawings & calculation support"
-      },
-      "11": {
-        "title": "Data Center",
-        "type": "Industrial",
-        "scope": "BIM support & shop drawings"
-      },
-      "12": {
-        "title": "Hotel",
-        "type": "Hospitality",
-        "scope": "Structural drawings & BIM modeling"
+        "scope": "Shop drawing & structural drawing support"
       }
     }
   },
   "plans": {
     "title": "Service Plans",
     "subtitle": "Flexible outsourcing plans tailored to your project needs.",
-    "mostPopular": "Most Popular",
+    "mostPopular": "Most Requested Plan",
     "choosePlan": "Choose this plan",
     "consultation": "Not sure which plan suits you? Contact us for a free consultation.",
     "consultationCta": "Request Free Consultation",
@@ -276,7 +258,8 @@
         "4": "On-demand video meetings",
         "5": "Weekly progress reports"
       }
-    }
+    },
+    "priceNote": "Pricing varies by project scope and volume. Contact us for a tailored quote."
   },
   "workflow": {
     "title": "Our Work Process",
@@ -324,7 +307,7 @@
     "title": "About SCDC",
     "intro1": "SCDC (Steel Construction Drawing Consultancy) is a Nepal-based structural engineering firm specializing in steel shop drawings, structural drawing support, and BIM services for the Japanese construction market and international clients.",
     "intro2": "We were founded with a clear mission: to bridge the gap between design intent and fabrication reality through precise, JASS 6-compliant drawings and BIM-powered workflows.",
-    "intro3": "Our team of experienced structural engineers and BIM specialists brings together deep technical know-how — built through years of hands-on involvement in steel fabrication projects across diverse industries and structure types.",
+    "intro3": "Our founder has 5+ years of hands-on experience working in a leading Tokyo steel construction firm as Section Head — specialising in Tekla Structures detailing, BIM coordination, and Japanese-language project management. SCDC operates with a clear principle: we provide drawing support, while design responsibility always rests with the licensed engineer.",
     "valuesTitle": "Core Values",
     "values": {
       "1": {
@@ -423,7 +406,7 @@
       "workflow": "Workflow",
       "contact": "Contact Us"
     },
-    "rights": "© 2025 SCDC. All Rights Reserved."
+    "rights": "© 2026 SCDC. All Rights Reserved."
   },
   "meta": {
     "home": {
