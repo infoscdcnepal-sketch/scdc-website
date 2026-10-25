@@ -42,12 +42,7 @@ export default function PortfolioPage({
 
 function PortfolioContent() {
   const t = useTranslations('portfolio');
-  const stats = [
-    'statsProjects',
-    'statsStructures',
-    'statsIndustries',
-    'statsSatisfaction',
-  ] as const;
+  const stats = ['statsProjects', 'statsStructures', 'statsIndustries'] as const;
 
   return (
     <>
@@ -63,7 +58,7 @@ function PortfolioContent() {
       </section>
 
       <div className="mx-auto -mt-12 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6">
           {stats.map((key, i) => (
             <FadeIn key={key} delay={i * 0.08}>
               <div className="rounded-2xl bg-white p-6 text-center shadow-card">

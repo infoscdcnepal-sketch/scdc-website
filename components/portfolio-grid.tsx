@@ -3,8 +3,10 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
-import { projects, structureLabels, type StructureType } from '@/lib/projects';
+import { projects, type StructureType } from '@/lib/projects';
 import { ProjectCard } from '@/components/project-card';
+import { Link } from '@/navigation';
+import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 const filters: (StructureType | 'all')[] = ['all', 'S', 'RC', 'W', 'SRC'];
@@ -38,10 +40,27 @@ export function PortfolioGrid() {
                 : 'border-gray-300 bg-white text-ink-muted hover:border-navy hover:text-navy'
             )}
           >
-            {filter === 'all' ? t('filterAll') : structureLabels[filter]}
+            {filter === 'all' ? t('filterAll') : t(`structure.${filter}`)}
           </button>
         ))}
       </div>
+
+      {/* Empty state: shown when a category has no public projects */}
+      {visible.length === 0 && (
+        <div
+          role="status"
+          className="rounded-2xl border border-dashed border-gray-300 bg-white px-6 py-14 text-center"
+        >
+          <p className="text-lg font-bold text-navy">{t('emptyTitle')}</p>
+          <p className="mx-auto mt-2 max-w-xl text-ink-muted">{t('emptyBody')}</p>
+          <Link
+            href="/contact"
+            className={cn(buttonVariants({ variant: 'outline', size: 'sm' }), 'mt-6')}
+          >
+            {t('emptyCta')}
+          </Link>
+        </div>
+      )}
 
       {/* Card grid */}
       <motion.div layout className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

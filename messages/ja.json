@@ -173,7 +173,15 @@
     "statsProjects": "累計30件以上",
     "statsStructures": "4構造種別",
     "statsIndustries": "8業種対応",
-    "statsSatisfaction": "",
+    "structure": {
+      "S": "S造",
+      "RC": "RC造",
+      "W": "木造",
+      "SRC": "SRC造"
+    },
+    "emptyTitle": "この構造種別の公開実績は現在ありません。",
+    "emptyBody": "該当する事例は、守秘義務契約のもとでご紹介できます。お気軽にお問い合わせください。",
+    "emptyCta": "お問い合わせ",
     "scopeLabel": "対応範囲",
     "durationLabel": "期間",
     "note": "すべてのプロジェクトは、担当設計士・ファブリケーター様のご指示のもとで実施した作図サポート業務です。守秘義務契約によりクライアント名は非公開です。",

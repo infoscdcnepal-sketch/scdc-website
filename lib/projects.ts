@@ -6,13 +6,6 @@ export type Project = {
   durationMonths: number;
 };
 
-export const structureLabels: Record<StructureType, string> = {
-  S: 'S造',
-  RC: 'RC造',
-  W: '木造',
-  SRC: 'SRC造',
-};
-
 export const structureBadgeClasses: Record<StructureType, string> = {
   S: 'bg-navy text-white',
   RC: 'bg-slate-600 text-white',

@@ -173,7 +173,15 @@
     "statsProjects": "30+ Projects",
     "statsStructures": "4 Structure Types",
     "statsIndustries": "8 Industries",
-    "statsSatisfaction": "",
+    "structure": {
+      "S": "Steel (S)",
+      "RC": "RC",
+      "W": "Timber",
+      "SRC": "SRC"
+    },
+    "emptyTitle": "No public projects in this category yet.",
+    "emptyBody": "Ask us for relevant examples — we can share them under NDA.",
+    "emptyCta": "Contact us",
     "scopeLabel": "Scope",
     "durationLabel": "Duration",
     "note": "All projects were carried out as drawing support work under the direction of the responsible structural engineer or fabricator. Client names are withheld under confidentiality agreements.",

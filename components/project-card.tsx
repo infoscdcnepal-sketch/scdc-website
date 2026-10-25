@@ -1,10 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Clock, Ruler } from 'lucide-react';
-import {
-  structureBadgeClasses,
-  structureLabels,
-  type Project,
-} from '@/lib/projects';
+import { structureBadgeClasses, type Project } from '@/lib/projects';
 import { cn } from '@/lib/utils';
 
 export function ProjectCard({ project }: { project: Project }) {
@@ -20,7 +16,7 @@ export function ProjectCard({ project }: { project: Project }) {
             structureBadgeClasses[project.structure]
           )}
         >
-          {structureLabels[project.structure]}
+          {t(`structure.${project.structure}`)}
         </span>
         <span className="text-xs font-semibold uppercase tracking-wider text-ink-muted">
           {t(`projects.${project.id}.type`)}
