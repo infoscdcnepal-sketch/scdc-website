@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-import { Mail, Globe, MapPin, Clock } from 'lucide-react';
+import { Mail, Globe, MapPin, Clock, Phone } from 'lucide-react';
 import { Section } from '@/components/section';
 import { FadeIn } from '@/components/fade-in';
 import { ContactForm } from '@/components/contact-form';
 import { JsonLd, breadcrumbSchema } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
-import { site } from '@/lib/site';
+import { site, company } from '@/lib/site';
 
 export async function generateMetadata({
   params: { locale },
@@ -83,6 +83,18 @@ function ContactContent() {
                       className="text-white/70 transition-colors hover:text-teal"
                     >
                       {site.email}
+                    </a>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Phone className="mt-0.5 h-5 w-5 shrink-0 text-teal" aria-hidden="true" />
+                  <div>
+                    <p className="font-semibold text-white/90">{t('phoneLabel')}</p>
+                    <a
+                      href={company.phoneHref}
+                      className="text-white/70 transition-colors hover:text-teal"
+                    >
+                      {company.phone}
                     </a>
                   </div>
                 </li>

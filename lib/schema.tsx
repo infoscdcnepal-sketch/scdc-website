@@ -1,4 +1,4 @@
-import { site } from './site';
+import { site, company } from './site';
 
 export function organizationSchema() {
   return {
@@ -8,8 +8,15 @@ export function organizationSchema() {
     alternateName: 'S.C.D.C エンジニアリングファーム',
     url: site.url,
     logo: `${site.url}/scdc-logo.png`,
+    legalName: company.legalName,
     email: site.email,
-    address: { '@type': 'PostalAddress', addressCountry: 'NP' },
+    telephone: company.phone,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: company.streetAddress,
+      addressRegion: company.region,
+      addressCountry: company.country,
+    },
     areaServed: ['JP', 'AU', 'US', 'EU'],
     sameAs: [site.linkedin],
     description:

@@ -14,6 +14,7 @@ const routes = [
   "/service-flowchart",
   "/about",
   "/contact",
+  "/privacy",
 ];
 
 const locales = ["en", "ja"] as const;
