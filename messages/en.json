@@ -360,6 +360,7 @@
       "service": "Service Interested In",
       "message": "Project Details",
       "file": "Attach Drawing (optional)",
+      "fileHint": "PDF, DWG, DXF, ZIP, PNG or JPG, up to {size} MB. For larger files, please email them to {email}.",
       "submit": "Send Inquiry",
       "submitting": "Sending…",
       "optional": "Optional",
@@ -377,7 +378,9 @@
         "countryRequired": "Please enter your country.",
         "serviceRequired": "Please select a service.",
         "messageRequired": "Please describe your project.",
-        "messageMin": "Please provide at least 10 characters."
+        "messageMin": "Please provide at least 10 characters.",
+        "fileTooLarge": "This file is larger than {size} MB. Please email larger files to {email}.",
+        "fileType": "Unsupported file type. Please attach a PDF, DWG, DXF, ZIP, PNG or JPG."
       },
       "success": "Thank you — your inquiry has been sent. We'll respond within 1 business day.",
       "error": "Something went wrong while sending your inquiry. Please email us directly at info.scdcnepal@gmail.com."

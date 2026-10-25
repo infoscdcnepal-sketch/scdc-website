@@ -11,6 +11,13 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
+import { site } from '@/lib/site';
+import {
+  ACCEPT_ATTRIBUTE,
+  MAX_UPLOAD_BYTES,
+  MAX_UPLOAD_MB,
+  hasAllowedExtension,
+} from '@/lib/upload';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -34,6 +41,17 @@ export function ContactForm() {
           .string()
           .min(1, t('errors.messageRequired'))
           .min(10, t('errors.messageMin')),
+        file: z
+          .any()
+          .refine(
+            (files) => !files || files.length === 0 || files[0].size <= MAX_UPLOAD_BYTES,
+            t('errors.fileTooLarge', { size: MAX_UPLOAD_MB, email: site.email })
+          )
+          .refine(
+            (files) =>
+              !files || files.length === 0 || hasAllowedExtension(files[0].name),
+            t('errors.fileType')
+          ),
       }),
     [t]
   );
@@ -50,12 +68,13 @@ export function ContactForm() {
   const onSubmit = async (values: FormValues) => {
     setStatus('submitting');
     try {
-      // Wire this to your form endpoint (e.g. /api/contact, Formspree, or Resend).
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
-      });
+      // Send as multipart so the optional drawing travels with the enquiry.
+      const body = new FormData();
+      const { file, ...fields } = values;
+      Object.entries(fields).forEach(([key, value]) => body.append(key, value ?? ''));
+      if (file && file.length > 0) body.append('file', file[0]);
+
+      const res = await fetch('/api/contact', { method: 'POST', body });
       if (!res.ok) throw new Error('Request failed');
       setStatus('success');
       reset();
@@ -64,12 +83,14 @@ export function ContactForm() {
     }
   };
 
-  const fieldError = (key: keyof FormValues) =>
-    errors[key] ? (
+  const fieldError = (key: keyof FormValues) => {
+    const message = errors[key]?.message;
+    return typeof message === 'string' && message ? (
       <p role="alert" className="mt-1 text-sm font-medium text-red-600">
-        {errors[key]?.message}
+        {message}
       </p>
     ) : null;
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
@@ -137,11 +158,16 @@ export function ContactForm() {
         </Label>
         <Input
           id="file"
-          name="file"
           type="file"
-          accept=".pdf,.dwg,.dxf,.zip,.png,.jpg"
+          accept={ACCEPT_ATTRIBUTE}
+          aria-describedby="file-hint"
           className="h-auto cursor-pointer py-2 file:mr-4 file:rounded-full file:border-0 file:bg-teal-light file:px-4 file:py-1.5 file:text-sm file:font-semibold file:text-accent"
+          {...register('file')}
         />
+        <p id="file-hint" className="mt-1 text-xs text-ink-muted">
+          {t('fileHint', { size: MAX_UPLOAD_MB, email: site.email })}
+        </p>
+        {fieldError('file')}
       </div>
 
       <Button type="submit" disabled={status === 'submitting'} className="w-full sm:w-auto">

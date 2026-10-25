@@ -360,6 +360,7 @@
       "service": "ご希望のサービス",
       "message": "プロジェクト詳細",
       "file": "図面添付（任意）",
+      "fileHint": "PDF、DWG、DXF、ZIP、PNG、JPG形式、{size}MBまで。それ以上のファイルは {email} までメールでお送りください。",
       "submit": "送信する",
       "submitting": "送信中…",
       "optional": "任意",
@@ -377,7 +378,9 @@
         "countryRequired": "国をご入力ください。",
         "serviceRequired": "サービスを選択してください。",
         "messageRequired": "プロジェクト内容をご入力ください。",
-        "messageMin": "10文字以上でご入力ください。"
+        "messageMin": "10文字以上でご入力ください。",
+        "fileTooLarge": "ファイルサイズが{size}MBを超えています。大きなファイルは {email} までメールでお送りください。",
+        "fileType": "対応していないファイル形式です。PDF、DWG、DXF、ZIP、PNG、JPGのいずれかを添付してください。"
       },
       "success": "お問い合わせを送信しました。1営業日以内にご連絡いたします。",
       "error": "送信中にエラーが発生しました。お手数ですが info.scdcnepal@gmail.com まで直接ご連絡ください。"

@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
+import {
+  MAX_UPLOAD_BYTES,
+  hasAllowedExtension,
+  sanitizeFilename,
+} from "@/lib/upload";
 
 const contactSchema = z.object({
   name: z.string().min(1).max(200),
@@ -14,6 +19,7 @@ const contactSchema = z.object({
 
 export async function POST(request: Request) {
   let payload: unknown;
+  let upload: File | null = null;
 
   const contentType = request.headers.get("content-type") ?? "";
 
@@ -25,6 +31,12 @@ export async function POST(request: Request) {
         if (typeof value === "string") entries[key] = value;
       });
       payload = entries;
+
+      // Browsers send an empty file part when nothing was chosen, so ignore size 0.
+      const fileEntry = form.get("file");
+      if (fileEntry && typeof fileEntry !== "string" && fileEntry.size > 0) {
+        upload = fileEntry;
+      }
     } else {
       payload = await request.json();
     }
@@ -43,6 +55,16 @@ export async function POST(request: Request) {
 
   const { name, company, email, phone, country, service, message } = parsed.data;
 
+  // Re-check the file on the server: the browser checks can be bypassed.
+  if (upload && upload.size > MAX_UPLOAD_BYTES) {
+    return NextResponse.json({ ok: false, error: "File too large" }, { status: 413 });
+  }
+  if (upload && !hasAllowedExtension(upload.name)) {
+    return NextResponse.json({ ok: false, error: "Unsupported file type" }, { status: 415 });
+  }
+
+  const attachmentName = upload ? sanitizeFilename(upload.name) : null;
+
   const lines = [
     "New enquiry from SCDC website",
     "",
@@ -52,6 +74,11 @@ export async function POST(request: Request) {
     "Phone:    " + (phone || "-"),
     "Country:  " + (country || "-"),
     "Service:  " + service,
+    "",
+    "Attachment: " +
+      (upload && attachmentName
+        ? attachmentName + " (" + Math.ceil(upload.size / 1024) + " KB)"
+        : "none"),
     "",
     "Message:",
     message,
@@ -67,6 +94,16 @@ export async function POST(request: Request) {
     reply_to: email,
     subject: "New enquiry from " + name + " - " + service,
     text: emailBody,
+    attachments:
+      upload && attachmentName
+        ? [
+            {
+              filename: attachmentName,
+              // Base64 string: the format the Resend API documents for attachments.
+              content: Buffer.from(await upload.arrayBuffer()).toString("base64"),
+            },
+          ]
+        : undefined,
   });
 
   if (error) {
