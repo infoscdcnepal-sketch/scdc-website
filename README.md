@@ -54,7 +54,10 @@ npm run build      # production build
 
 - **Logo:** drop `scdc-logo.png` into `public/` and swap the placeholder mark in `components/header.tsx` (marked with a comment).
 - **OG image:** add `public/og-image.png` (1200×630).
-- **Contact delivery:** `app/api/contact/route.ts` validates and accepts submissions; wire in Resend/SendGrid/SMTP where marked to actually email enquiries to `info.scdcnepal@gmail.com`.
+- **Contact delivery:** `app/api/contact/route.ts` validates enquiries (including an optional drawing, max 4 MB) and emails them through [Resend](https://resend.com). Configure these environment variables in Vercel:
+  - `RESEND_API_KEY` — your Resend API key (required).
+  - `CONTACT_FROM` — sender, e.g. `SCDC Website <noreply@scdc.com.np>`. Requires `scdc.com.np` to be verified in Resend. If unset, Resend's shared test sender is used, which only delivers to the Resend account's own email.
+  - `CONTACT_TO` — where enquiries are delivered, e.g. `info@scdc.com.np`. If unset, the current Gmail inbox is used.
 - **Copy:** all text lives in `messages/en.json` and `messages/ja.json`.
 - **Portfolio data:** structure types and durations in `lib/projects.ts`; titles/scopes in the message files.
 

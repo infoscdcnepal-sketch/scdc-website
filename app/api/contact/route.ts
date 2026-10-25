@@ -7,6 +7,15 @@ import {
   sanitizeFilename,
 } from "@/lib/upload";
 
+// Sender and recipient come from environment variables so they can be switched in
+// Vercel without a code change. The fallbacks are Resend's shared test sender, which
+// can only deliver to the email address of the Resend account itself.
+// After verifying scdc.com.np in Resend, set in Vercel:
+//   CONTACT_FROM = SCDC Website <noreply@scdc.com.np>
+//   CONTACT_TO   = info@scdc.com.np
+const DEFAULT_FROM = "SCDC Website <onboarding@resend.dev>";
+const DEFAULT_TO = "info.scdcnepal@gmail.com";
+
 const contactSchema = z.object({
   name: z.string().min(1).max(200),
   company: z.string().max(200).optional().or(z.literal("")),
@@ -89,8 +98,8 @@ export async function POST(request: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   const { error } = await resend.emails.send({
-    from: "SCDC Website <onboarding@resend.dev>",
-    to: "info.scdcnepal@gmail.com",
+    from: process.env.CONTACT_FROM || DEFAULT_FROM,
+    to: process.env.CONTACT_TO || DEFAULT_TO,
     reply_to: email,
     subject: "New enquiry from " + name + " - " + service,
     text: emailBody,
